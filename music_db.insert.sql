@@ -81,6 +81,30 @@ INSERT INTO track (name, duration, album_id) VALUES ('Вокзал', 297, 7);
 INSERT INTO track (name, duration, album_id) VALUES ('Галя ходи', 304, 7);
 INSERT INTO track (name, duration, album_id) VALUES ('Любовь не пропала', 357, 7);
 
+-- Some fake tracks for deep testing
+INSERT INTO track (name, duration, album_id) VALUES ('My own', 123, 1);
+INSERT INTO track (name, duration, album_id) VALUES ('Own my', 132, 2);
+INSERT INTO track (name, duration, album_id) VALUES ('My', 213, 3);
+INSERT INTO track (name, duration, album_id) VALUES ('Oh my God', 231, 4);
+INSERT INTO track (name, duration, album_id) VALUES ('Myself', 123, 1);
+INSERT INTO track (name, duration, album_id) VALUES ('By myself', 132, 2);
+INSERT INTO track (name, duration, album_id) VALUES ('Bemy self', 213, 3);
+INSERT INTO track (name, duration, album_id) VALUES ('Myself by', 231, 4);
+INSERT INTO track (name, duration, album_id) VALUES ('By myself by', 312, 1);
+INSERT INTO track (name, duration, album_id) VALUES ('Beemy', 321, 2);
+INSERT INTO track (name, duration, album_id) VALUES ('Premyne', 111, 3);
+INSERT INTO track (name, duration, album_id) VALUES ('Мой кот', 123, 5);
+INSERT INTO track (name, duration, album_id) VALUES ('Кот мой', 132, 6);
+INSERT INTO track (name, duration, album_id) VALUES ('Мой', 213, 7);
+INSERT INTO track (name, duration, album_id) VALUES ('О мой кот', 231, 5);
+INSERT INTO track (name, duration, album_id) VALUES ('Мойка', 123, 6);
+INSERT INTO track (name, duration, album_id) VALUES ('По Мойке', 132, 7);
+INSERT INTO track (name, duration, album_id) VALUES ('Помой кота', 213, 5);
+INSERT INTO track (name, duration, album_id) VALUES ('Мойва плывёт', 231, 6);
+INSERT INTO track (name, duration, album_id) VALUES ('У мойвы плавники', 312, 7);
+INSERT INTO track (name, duration, album_id) VALUES ('Домой', 321, 5);
+INSERT INTO track (name, duration, album_id) VALUES ('Головомойка', 111, 6);
+
 -- Track collections (all fake :)
 
 INSERT INTO collection (name, year) VALUES ('Punk’s Not Dead', 2006);
