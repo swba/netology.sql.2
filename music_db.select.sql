@@ -12,9 +12,8 @@ SELECT name FROM collection WHERE year BETWEEN 2018 AND 2020;
 -- 4. Исполнители, чьё имя состоит из одного слова.
 SELECT name FROM artist WHERE name NOT LIKE '% %';
 
--- 5. Название треков, которые содержат слово «любовь» или «love».
-SELECT name FROM track 
-WHERE LOWER(name) LIKE '%любовь%' OR LOWER(name) LIKE '%love%';
+-- 5. Название треков, которые содержат слово «мой» или «my».
+SELECT name FROM track WHERE name ~* '\m(мой|my)\M';
 
 
 --- Задание 3 ---
@@ -27,11 +26,10 @@ GROUP BY g.genre_id
 ORDER BY g.genre_id;
 
 -- 2. Количество треков, вошедших в альбомы 1992–1993 годов.
-SELECT a.album_id, a.name AS album_name, COUNT(t.track_id) AS track_count
+SELECT COUNT(t.track_id) AS track_count
 FROM track t 
 JOIN album a ON t.album_id = a.album_id 
-WHERE a.year BETWEEN 1992 AND 1993
-GROUP BY a.album_id;
+WHERE a.year BETWEEN 1992 AND 1993;
 
 -- 3. Средняя продолжительность треков по каждому альбому.
 SELECT a.album_id, a.name AS album_name, AVG(t.duration) AS avg_track_duration
@@ -69,7 +67,7 @@ SELECT a.name
 FROM album_artist aa 
 JOIN album a ON aa.album_id = a.album_id 
 JOIN artist_genre ag ON aa.artist_id = ag.artist_id
-GROUP BY a.album_id
+GROUP BY a.album_id, ag.artist_id
 HAVING COUNT(ag.genre_id) > 1
 ORDER BY a.name;
 
@@ -91,15 +89,13 @@ GROUP BY a2.artist_id
 ORDER BY a2.name;
 
 -- 4. Названия альбомов, содержащих наименьшее количество треков.
-SELECT a.name
-FROM track t 
-JOIN album a ON t.album_id = a.album_id 
-GROUP BY a.album_id
-HAVING COUNT(t.track_id) IN (
+SELECT name
+FROM album 
+WHERE album_id IN (
 	SELECT album_id 
 	FROM track 
 	GROUP BY album_id 
 	ORDER BY COUNT(track_id) 
 	LIMIT 1
 )
-ORDER BY a.name;
+ORDER BY name;
